@@ -1,0 +1,13 @@
+name: Lity
+version: 1.0.0
+description: "Lity is a ultra-lightweight, accessible and responsive lightbox plugin which supports images, iframes and inline content out of the box."
+author:
+  name: Sergey Romanenko
+  email: awilum@yandex.ru
+  url: http://flextype.org
+homepage: https://github.com/flextype-plugins/lity
+bugs: https://github.com/flextype-plugins/lity/issues
+license: MIT
+
+# Plugin settings
+enabled: true
