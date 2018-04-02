@@ -46,19 +46,19 @@ Shortcodes::driver()->addHandler('lity-img', function(ShortcodeInterface $s) {
     $src    = '';
 
     if ($s->getParameter('class')) {
-        $class = ' class = '.$s->getParameter('class');
+        $class = ' class="'.$s->getParameter('class').'"';
     }
 
     if ($s->getParameter('alt')) {
-        $alt = ' alt = '.$s->getParameter('alt');
+        $alt = ' alt="'.$s->getParameter('alt').'"';
     }
 
     if ($s->getParameter('target')) {
-        $target = ' data-lity-target = '.Url::getBase().$s->getParameter('target');
+        $target = ' data-lity-target="'.Url::getBase().$s->getParameter('target').'"';
     }
 
     if ($s->getParameter('src')) {
-        $src = ' src = '.Url::getBase().$s->getParameter('src');
+        $src = ' src="'.Url::getBase().$s->getParameter('src').'"';
     }
 
     return '<img'.$class.$target.$alt.$src.' data-lity>';
