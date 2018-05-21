@@ -33,34 +33,41 @@ Event::addListener('onThemeFooter', function () {
     echo ('<script>window.jQuery || document.write(\'<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"><\/script>\')</script>');
 
     // Load lity library
-    echo('<script src="'.Http::getBaseUrl().'/site/plugins/lity/vendor/lity/dist/lity.min.js"></script>');
+    echo ('<script src="'.Http::getBaseUrl().'/site/plugins/lity/vendor/lity/dist/lity.min.js"></script>');
 });
 
 //
 // Shortcode: [lity-img]
 //
-Shortcodes::driver()->addHandler('lity-img', function(ShortcodeInterface $s) {
+Event::addListener('onShortcodesInitialized', function () {
 
-    $class  = '';
-    $target = '';
-    $alt    = '';
-    $src    = '';
+    Content::shortcode()->addHandler('test', function(ShortcodeInterface $s) {
+        return 'tets!!!';
+    });
 
-    if ($s->getParameter('class')) {
-        $class = ' class="'.$s->getParameter('class').'"';
-    }
+    Content::shortcode()->addHandler('lity-img', function(ShortcodeInterface $s) {
 
-    if ($s->getParameter('alt')) {
-        $alt = ' alt="'.$s->getParameter('alt').'"';
-    }
+        $class  = '';
+        $target = '';
+        $alt    = '';
+        $src    = '';
 
-    if ($s->getParameter('target')) {
-        $target = ' data-lity-target="'.Http::getBaseUrl().$s->getParameter('target').'"';
-    }
+        if ($s->getParameter('class')) {
+            $class = ' class="'.$s->getParameter('class').'"';
+        }
 
-    if ($s->getParameter('src')) {
-        $src = ' src="'.Http::getBaseUrl().$s->getParameter('src').'"';
-    }
+        if ($s->getParameter('alt')) {
+            $alt = ' alt="'.$s->getParameter('alt').'"';
+        }
 
-    return '<img'.$class.$target.$alt.$src.' data-lity>';
+        if ($s->getParameter('target')) {
+            $target = ' data-lity-target="'.Http::getBaseUrl().$s->getParameter('target').'"';
+        }
+
+        if ($s->getParameter('src')) {
+            $src = ' src="'.Http::getBaseUrl().$s->getParameter('src').'"';
+        }
+
+        return '<img'.$class.$target.$alt.$src.' data-lity>';
+    });
 });
