@@ -40,11 +40,7 @@ Event::addListener('onThemeFooter', function () {
 // Shortcode: [lity-img]
 //
 Event::addListener('onShortcodesInitialized', function () {
-
-    Content::shortcode()->addHandler('test', function(ShortcodeInterface $s) {
-        return 'tets!!!';
-    });
-
+    
     Content::shortcode()->addHandler('lity-img', function(ShortcodeInterface $s) {
 
         $class  = '';
