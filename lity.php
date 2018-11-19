@@ -40,7 +40,7 @@ Event::addListener('onThemeFooter', function () {
 // Shortcode: [lity-img]
 //
 Event::addListener('onShortcodesInitialized', function () {
-    
+
     Content::shortcode()->addHandler('lity-img', function(ShortcodeInterface $s) {
 
         $class  = '';
@@ -57,11 +57,11 @@ Event::addListener('onShortcodesInitialized', function () {
         }
 
         if ($s->getParameter('target')) {
-            $target = ' data-lity-target="'.Http::getBaseUrl().$s->getParameter('target').'"';
+            $target = ' data-lity-target="'.$s->getParameter('target').'"';
         }
 
         if ($s->getParameter('src')) {
-            $src = ' src="'.Http::getBaseUrl().$s->getParameter('src').'"';
+            $src = ' src="'.$s->getParameter('src').'"';
         }
 
         return '<img'.$class.$target.$alt.$src.' data-lity>';
